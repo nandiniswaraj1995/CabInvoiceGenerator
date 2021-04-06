@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using CAbInvoiceGenarator;
+using System;
 
 namespace CabInvoiceGeneratorNUnitTestProject1
 {
@@ -21,5 +22,17 @@ namespace CabInvoiceGeneratorNUnitTestProject1
             double expected = 25;
             Assert.AreEqual(expected, fare);
         }
+        [Test]
+        public void GivenMultipleRideShouldReturnInvoiceSummary()
+        {
+            invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
+            Ride[] rides = { new Ride(2.0, 5), new Ride(4.0, 5), new Ride(8.0, 5) };
+            double summary = invoiceGenerator.CalculateFareForMultipleRides(rides);
+          //  Math.Round(summary, MidpointRounding.AwayFromZero));
+             
+            Assert.AreEqual(52.0, Math.Round(summary, MidpointRounding.AwayFromZero));
+            
+        }
+
     }
 }
