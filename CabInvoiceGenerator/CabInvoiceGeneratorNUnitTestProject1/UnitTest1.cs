@@ -30,6 +30,8 @@ namespace CabInvoiceGeneratorNUnitTestProject1
             InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
             InvoiceSummary expectedSummary = new InvoiceSummary(3, 155);
             Assert.AreEqual(expectedSummary.averageFare, summary.averageFare);
+            Assert.AreEqual(expectedSummary.totalFare, summary.totalFare);
+            Assert.AreEqual(expectedSummary.numberOfRides, summary.numberOfRides);
 
         }
 
