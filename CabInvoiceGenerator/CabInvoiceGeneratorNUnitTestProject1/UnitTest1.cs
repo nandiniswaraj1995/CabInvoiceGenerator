@@ -27,11 +27,10 @@ namespace CabInvoiceGeneratorNUnitTestProject1
         {
             invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
             Ride[] rides = { new Ride(2.0, 5), new Ride(4.0, 5), new Ride(8.0, 5) };
-            double summary = invoiceGenerator.CalculateFareForMultipleRides(rides);
-          //  Math.Round(summary, MidpointRounding.AwayFromZero));
-             
-            Assert.AreEqual(52.0, Math.Round(summary, MidpointRounding.AwayFromZero));
-            
+            InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
+            InvoiceSummary expectedSummary = new InvoiceSummary(3, 155);
+            Assert.AreEqual(expectedSummary.averageFare, summary.averageFare);
+
         }
 
     }
