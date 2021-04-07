@@ -14,8 +14,11 @@ namespace TDDTestDemo
             Ride[] rides = { new Ride(2.0, 5), new Ride(4.0, 5),new Ride(8.0,5) };
             InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
            Console.WriteLine($"TotalFare : {summary.totalFare}");
+            //InvoiceSummary riders = invoiceGenerator.GetInvoiceSummary("101");
+          //  Console.WriteLine(riders.numberOfRides);
 
 
         }
     }
+
 }

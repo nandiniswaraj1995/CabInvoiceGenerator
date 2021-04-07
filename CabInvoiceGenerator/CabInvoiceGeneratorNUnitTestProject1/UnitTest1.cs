@@ -29,9 +29,18 @@ namespace CabInvoiceGeneratorNUnitTestProject1
             Ride[] rides = { new Ride(2.0, 5), new Ride(4.0, 5), new Ride(8.0, 5) };
             InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
             InvoiceSummary expectedSummary = new InvoiceSummary(3, 155);
-            Assert.AreEqual(expectedSummary.averageFare, summary.averageFare);
-            Assert.AreEqual(expectedSummary.totalFare, summary.totalFare);
-            Assert.AreEqual(expectedSummary.numberOfRides, summary.numberOfRides);
+            Assert.AreEqual(expectedSummary, summary);
+          
+        }
+        [Test]
+        public void GivenMultipleRideShouldReturnInvoiceSummaryInDetails()
+        {
+            invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
+            Ride[] rides = { new Ride(2.0, 5), new Ride(4.0, 5), new Ride(8.0, 5) };
+            InvoiceSummary summary = invoiceGenerator.CalculateFare(rides);
+            InvoiceSummary expectedSummary = new InvoiceSummary(3, 155);
+            Assert.AreEqual(expectedSummary.GetHashCode(), summary.GetHashCode());
+            
 
         }
 

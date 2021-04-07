@@ -15,7 +15,7 @@ namespace CAbInvoiceGenarator
             this.totalFare = totalFare;
             this.averageFare = this.totalFare / this.numberOfRides;
         }
-
+       
         public override bool Equals(object obj)
         {
             if (obj == null) return false;
