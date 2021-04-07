@@ -56,6 +56,18 @@ namespace CabInvoiceGeneratorNUnitTestProject1
 
 
         }
+        [Test]
+        public void GivenDistanceAndTimeShouldReturnTotalFareForPremiumAndNormalRide()
+        {
+            invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
+            InvoiceGenerator invoiceGenerator1 = new InvoiceGenerator(RideType.PREMIUM);
+            double distance = 2.0;
+            int time = 5;
+            double fare = invoiceGenerator.CalculateFare(distance, time);
+            double fare1 = invoiceGenerator1.CalculateFare(distance, time);
+            Assert.AreNotEqual(fare1, fare);
+        }
+
 
     }
 }
