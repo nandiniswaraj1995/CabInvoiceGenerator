@@ -43,6 +43,19 @@ namespace CabInvoiceGeneratorNUnitTestProject1
             
 
         }
+        [Test]
+        public void GivenUserIdShouldReturnInvoiceSummaryIn()
+        {
+            invoiceGenerator = new InvoiceGenerator(RideType.NORMAL);
+            RideRepository repo = new RideRepository();
+            Ride[] rides = { new Ride(2.0, 5), new Ride(4.0, 5), new Ride(8.0, 5) };
+            InvoiceSummary summary1 = invoiceGenerator.CalculateFare(rides);
+            InvoiceSummary summary = invoiceGenerator.GetInvoiceSummary("101");
+            InvoiceSummary expectedSummary = new InvoiceSummary(3,155);
+            Assert.AreEqual(expectedSummary.GetHashCode(),summary.GetHashCode());
+
+
+        }
 
     }
 }

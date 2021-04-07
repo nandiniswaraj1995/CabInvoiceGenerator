@@ -67,7 +67,6 @@ namespace CAbInvoiceGenarator
         public InvoiceSummary CalculateFare(Ride[] rides)
         {
             double totalFare = 0;
-            //string useiId = "";
             try
             {
                 foreach (Ride ride in rides)
@@ -85,8 +84,7 @@ namespace CAbInvoiceGenarator
                 }
 
             }
-           // rideRepository.AddRide("101", rides);
-
+            rideRepository.AddRide("101", rides);
             return new InvoiceSummary(rides.Length, totalFare);
         }
 
